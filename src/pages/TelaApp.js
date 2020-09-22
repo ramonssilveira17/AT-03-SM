@@ -41,7 +41,7 @@ export function TelaApp() {
         <Picker
           selectedValue={opcao}
           style={{ height: 50, width: '50%', color: '#000' }}
-          onValueChange={(itemValue) => setOpcao({ linguagem: itemValue })}>
+          onValueChange={(itemValue) => setOpcao(itemValue)}>
           <Picker.Item label="Criança" value="crianca" />
           <Picker.Item label="Adulto" value="adulto" />
           <Picker.Item label="Idoso" value="idoso" />
