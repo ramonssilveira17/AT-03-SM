@@ -13,6 +13,18 @@ export function TelaApp() {
   function calculadoraDoImc(peso, altura) {
     var resultado = peso / (altura * altura)
     setImc(resultado)
+    if (resultado < 18.5) {
+      alert("Seu IMC é " + resultado.toFixed(2) +", sendo considerado baixo.")
+    }
+    else if (resultado >=18.5 && resultado < 24.9) {
+      alert("Seu IMC é " + resultado.toFixed(2) +", sendo considerado saudável.")
+    }
+    else if (resultado >=25 && resultado<29.9) {
+      alert("Seu IMC é " + resultado.toFixed(2) +", sendo considerado sobrepeso.")
+    }
+    else if (resultado >= 30) {
+      alert("Seu IMC é " + resultado.toFixed(2) +", sendo considerado obesidade.")
+    }
   }
 
   return (
@@ -23,15 +35,17 @@ export function TelaApp() {
         <Calculator name="calculator" size={40} color="black"/>
         <Text>{'\n'}</Text>
 
+        <Text>Seu peso:</Text>
         <TextInput
-          placeholder="Seu peso:"
+          placeholder="Digite aqui..."
           onChangeText={valor => setPeso(valor)}
           value={peso}
           style={styles.labelsPesoAltura}
         ></TextInput>
 
+        <Text>Sua altura:</Text>
         <TextInput
-          placeholder="Sua altura:"
+          placeholder="Digite aqui..."
           onChangeText={(valor) => setAltura(valor)}
           value={altura}
           style={styles.labelsPesoAltura}
